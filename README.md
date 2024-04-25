@@ -1,4 +1,5 @@
 ﻿Windows
+ 
 Necesario para arrancar la web:
 1. Descargar el instalador de ruby en https://www.ruby-lang.org/es/downloads/
    1. Versión de ruby para nuestro proyecto 3.2.3
