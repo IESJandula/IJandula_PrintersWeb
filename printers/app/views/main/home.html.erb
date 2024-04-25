@@ -1,0 +1,17 @@
+<!DOCTYPE hmtl>
+<html>
+    <head>
+    </head>
+    <body >   
+        <div class="px-40 pt-10 text-center ">
+            <div class="w-full pb-8">
+                <%= link_to t('IMPRIMIR PDF'), "/uploadPdf", class: "font-serif py-3 rounded-lg text-center hover:bg-red-900 bg-red-600 text-red-50 drop-shadow-sm block w-full text-3xl shadow-md shadow-gray-500" %>
+            </div>
+            <h1 class="text-2xl font-serif font-bold pb-4">Histórico</h1>
+            <%= render partial: 'main/print_info_table', locals: {info: @info}%>
+            <div class="w-full pb-8">
+                <%= link_to t('Recargar'), "/home", class: "font-serif py-3 rounded-lg text-center hover:bg-red-900 bg-red-600 text-red-50 drop-shadow-sm block w-full text-2xl shadow-md shadow-gray-500" %>
+            </div>
+        </div>
+    </body>
+</html>

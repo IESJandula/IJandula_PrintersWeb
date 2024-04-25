@@ -1,0 +1,30 @@
+<div class = " p-10  bg-gray-200 rounded-2xl shadow-md shadow-gray-500 h-[38rem] overflow-auto">
+    <table class="table-fixed w-full">
+        <thead>
+            <tr class="py-5">
+                <th class = " w-1/5 text-left pb-3 text-lg">Nombre del archivo</th>
+                <th class = "w-1/5 text-left pb-3 text-lg">Nombre de la impresora</th>
+                <th class = "w-1/12 text-left pb-3 text-lg">Nº copias</th>
+                <th class = "w-1/12 text-left pb-3 text-lg">Color</th>
+                <th class = "w-1/12 text-left pb-3 text-lg">Orientación</th>
+                <th class = "w-1/12 text-left pb-3 text-lg">Estado</th>
+                <th class = "w-1/12 text-left pb-3 text-lg">Caras</th>
+                <th class = "w-1/12 text-left pb-3 text-lg">Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @info.each do |print|%>
+                <tr>
+                    <td class="truncate hover:text-blue-400 text-left pl-1"><%= link_to "#{print.file_name}", pdfByName_path(id: print.id) %></td>
+                    <td class="truncate text-left pl-1"><%= print.printer_name%></td>
+                    <td class="truncate text-left pl-1"><%= print.num_copies%></td>
+                    <td class="truncate text-left pl-1"><%= print.color%></td>
+                    <td class="truncate text-left pl-1"><%= print.orientation%></td>
+                    <td class="truncate text-left pl-1"><%= print.status%></td>
+                    <td class="truncate text-left pl-1"><%= print.faces%></td>
+                    <td class="truncate text-left pl-1"><%= DateTime.parse(print.date).strftime("%d/%m/%Y %H:%M")%></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>
