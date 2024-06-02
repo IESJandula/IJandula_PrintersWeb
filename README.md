@@ -7,6 +7,7 @@ Este proyecto consiste en una página web dirigida al cuerpo docente del centro,
 - Impresión remota con selección de impresora, número de caras, color, número de copias y orientación.
 - Estado de la impresora que cambia dinámicamente según la selección.
 - Visualización de toda la información sobre las impresiones en el índice, con un buscador por todos sus atributos para filtrar según las necesidades.
+- Recuperacion y visualización del pdf impreso clicando en su nombre desde el indice.
 
 Además, los administradores tienen acceso a un apartado donde pueden ver y filtrar las impresiones de todos los usuarios, lo que permite una gestión de la base de datos, incluyendo la capacidad de borrar datos según el estado de la impresión y la fecha.
 
