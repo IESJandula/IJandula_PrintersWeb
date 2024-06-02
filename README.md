@@ -21,10 +21,10 @@ gem install rails 7.1.3.2
 
 Para iniciar la web:
 1. Ejecute el siguiente comando para instalar las gemas necesarias:
-bundle install --gemfile “ruta del Gemfile”
+`bundle install --gemfile “ruta del Gemfile`
 Ejemplo: `src\main\resources\static\printers\Gemfile`
 2. Compile el proyecto con el siguiente comando:
-bundle exec rails assets
+`bundle exec rails assets`
 
 3. Utilice el comando `rails s` dentro de la carpeta del proyecto para iniciar la web.
 
