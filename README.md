@@ -1,7 +1,6 @@
 REMOTE PRINTER WEB
 
 ----------- INFORMACIÓN -----------
-
 Este proyecto se basa en una página web orientada al cuerpo docente del centro, que permite de manera sencilla y remota imprimir un PDF desde cualquier lugar y dispositivo. La web está desarrollada en Ruby on Rails y cuenta con funcionalidades principales como un sistema propio de inicio de sesión y creación de usuarios.
 
 El usuario promedio puede acceder a la impresión remota con selección de impresora, así como especificar el número de caras, color, número de copias y orientación. Como incorporación importante, se ha añadido un estado de la impresora que cambia dinámicamente dependiendo de la impresora seleccionada. Además, toda la información sobre las impresiones se muestra en el índice con un buscador por todos sus atributos, lo que permite filtrar según las necesidades del usuario.
@@ -20,6 +19,7 @@ Para iniciar la web:
 Ejecutar el siguiente comando _**'bundle install --gemfile “ruta del Gemfile” **_ Ejemplo:(src\main\resources\static\printers\Gemfile)
 Compilar el proyecto con _**'bundle exec rails assets'**_
 Usar el comando 'rails s' dentro de la carpeta del proyecto para iniciar la web
+
 ----------- CREACIÓN DE USUARIOS -----------
 ADMINISTRADOR:
 Para crear un usuario administrador, es necesario hacerlo mediante la consola de Rails:
