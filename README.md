@@ -1,47 +1,48 @@
-REMOTE PRINTER WEB
 
------------ INFORMACIÓN -----------
+Remote Printer Web
+Información
+Este proyecto consiste en una página web dirigida al cuerpo docente del centro, que permite imprimir un PDF de forma remota y sencilla desde cualquier lugar y dispositivo. La aplicación web está desarrollada en Ruby on Rails y cuenta con las siguientes características principales:
 
-Este proyecto se basa en una página web orientada al cuerpo docente del centro, que permite de manera sencilla y remota imprimir un PDF desde cualquier lugar y dispositivo. La web está desarrollada en Ruby on Rails y cuenta con funcionalidades principales como un sistema propio de inicio de sesión y creación de usuarios.
+Sistema de inicio de sesión y creación de usuarios.
+Impresión remota con selección de impresora, número de caras, color, número de copias y orientación.
+Estado de la impresora que cambia dinámicamente según la selección.
+Visualización de toda la información sobre las impresiones en el índice, con un buscador por todos sus atributos para filtrar según las necesidades.
+Además, los administradores tienen acceso a un apartado donde pueden ver y filtrar las impresiones de todos los usuarios, lo que permite una gestión de la base de datos, incluyendo la capacidad de borrar datos según el estado de la impresión y la fecha.
 
-El usuario promedio puede acceder a la impresión remota con selección de impresora, así como especificar el número de caras, color, número de copias y orientación. Como incorporación importante, se ha añadido un estado de la impresora que cambia dinámicamente dependiendo de la impresora seleccionada. Además, toda la información sobre las impresiones se muestra en el índice con un buscador por todos sus atributos, lo que permite filtrar según las necesidades del usuario.
-En caso de querer recuperar un pdf ya enviado se puede clicar encima del nombre de este en el indice para ir a una pantalla que lo mostrara y permitira descargarlo.
+Requisitos para Windows
+Para iniciar la web, siga estos pasos:
 
-El administrador cuenta con las mismas funcionalidades, pero también tiene acceso a un apartado donde puede ver y filtrar las impresiones de todos los usuarios para llevar una gestión de la base de datos, incluyendo la capacidad de borrar datos según el estado de la impresión y la fecha.
+Descargue e instale Ruby desde ruby-lang.org.
+Versión de Ruby requerida para nuestro proyecto: 3.2.3
+Instale Rails utilizando la consola de comandos con el siguiente comando:
+Copiar código
+gem install rails 7.1.3.2
+Para iniciar la web:
 
------------ WINDOWS -----------
+Ejecute el siguiente comando para instalar las gemas necesarias:
+css
+Copiar código
+bundle install --gemfile “ruta del Gemfile”
+Ejemplo: src\main\resources\static\printers\Gemfile
+Compile el proyecto con el siguiente comando:
+bash
+Copiar código
+bundle exec rails assets:precompile
+Utilice el comando rails s dentro de la carpeta del proyecto para iniciar la web.
+Creación de Usuarios
+Administrador:
+Para crear un usuario administrador, siga estos pasos:
 
-Pasos necesarios para iniciar la web:
+Ejecute en la consola rails c. Esto abrirá una consola de Rails para la gestión de la base de datos.
+Utilice el siguiente código, modificando la información según sea necesaria:
+ruby
+Copiar código
+User.create(email: "user@example.com", admin: true, password: "password123", password_confirmation: "password123")
+Usuario Normal:
+Se ha proporcionado un archivo users.json en la ruta db\data\users.json con los correos electrónicos y contraseñas de los usuarios que contendrán la base de datos. Cada vez que se añadan nuevos usuarios, ejecute el siguiente comando en la consola desde la carpeta del proyecto para cargarlos en la base de datos:
 
-1.Descargar e instalar Ruby desde https://www.ruby-lang.org/es/downloads/
-
-    1- La versión de Ruby necesaria para nuestro proyecto es 3.2.3
-    
-2.Instalar Rails
-
-    1- Esto se realiza mediante la consola de comandos con el comando 'gem install rails 7.1.3.2'
-    
-3.Para iniciar la web:
-1- Ejecutar el siguiente comando 
-    
-     bundle install --gemfile “ruta del Gemfile” Ejemplo:(src\main\resources\static\printers\Gemfile)  
- 2- Compilar el proyecto con
- 
-     bundle exec rails assets
- 
-3- Usar el comando 'rails s' dentro de la carpeta del proyecto para iniciar la web
-
------------ CREACIÓN DE USUARIOS -----------
-
-ADMINISTRADOR:
-Para crear un usuario administrador, es necesario hacerlo mediante la consola de Rails:
-
-  1- Ejecutar en la consola_ **'rails c'**_. Esto abrirá una consola de Rails para la gestión de la base de datos.
-  
-  2- Utilizar este código, modificando la información según sea necesaria:
-  
-    _**'User.create(email: "user@example.com", admin: true, password: "password123", password_confirmation: "password123")'**_
-
-USUARIO NORMAL:
-Se ha preparado un archivo users.json en la ruta 'db\data\users.json' con los correos electrónicos y contraseñas de los usuarios que contendrá la base de datos. Cada vez que se añadan nuevos usuarios, se debe ejecutar el siguiente comando en la consola desde la carpeta del proyecto para cargarlos en la base de datos:
-_** 'rake import'**_
+arduino
+Copiar código
+rake import:users
+Licencia
+MIT License
