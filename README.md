@@ -14,10 +14,15 @@ El administrador cuenta con las mismas funcionalidades, pero también tiene acce
 Pasos necesarios para iniciar la web:
 
 1.Descargar e instalar Ruby desde https://www.ruby-lang.org/es/downloads/
+
     1- La versión de Ruby necesaria para nuestro proyecto es 3.2.3
+    
 2.Instalar Rails
+
     1- Esto se realiza mediante la consola de comandos con el comando 'gem install rails 7.1.3.2'
+    
 3.Para iniciar la web:
+
     1- Ejecutar el siguiente comando _**'bundle install --gemfile “ruta del Gemfile” **_ Ejemplo:(src\main\resources\static\printers\Gemfile)
     2- Compilar el proyecto con _**'bundle exec rails assets'**_
     3- Usar el comando 'rails s' dentro de la carpeta del proyecto para iniciar la web
@@ -26,8 +31,11 @@ Pasos necesarios para iniciar la web:
 
 ADMINISTRADOR:
 Para crear un usuario administrador, es necesario hacerlo mediante la consola de Rails:
+
   1- Ejecutar en la consola_ **'rails c'**_. Esto abrirá una consola de Rails para la gestión de la base de datos.
+  
   2- Utilizar este código, modificando la información según sea necesaria:
+  
     _**'User.create(email: "user@example.com", admin: true, password: "password123", password_confirmation: "password123")'**_
 
 USUARIO NORMAL:
