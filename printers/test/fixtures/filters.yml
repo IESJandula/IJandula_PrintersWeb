@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  printer_name: MyString
+  num_copies: 1
+  color: MyString
+  orientation: MyString
+  faces: MyString
+
+two:
+  printer_name: MyString
+  num_copies: 1
+  color: MyString
+  orientation: MyString
+  faces: MyString

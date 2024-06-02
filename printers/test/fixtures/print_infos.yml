@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  java_id: 1
+  file_name: MyString
+  printer_name: MyString
+  num_copies: 1
+  color: MyString
+  orientation: MyString
+  status: MyString
+  faces: MyString
+  user: MyString
+  date: MyString
+
+two:
+  java_id: 1
+  file_name: MyString
+  printer_name: MyString
+  num_copies: 1
+  color: MyString
+  orientation: MyString
+  status: MyString
+  faces: MyString
+  user: MyString
+  date: MyString

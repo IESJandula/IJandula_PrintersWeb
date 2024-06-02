@@ -1,0 +1,9 @@
+<h2 class="text-3xl font-bold text-center mb-6 mt-20">Crear usuario</h2>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name, input_html: { class: 'form-input' },class: 'block text-sm font-medium text-gray-700' %>
+  <%= f.input :email, input_html: { class: 'form-input' },class: 'block text-sm font-medium text-gray-700' %>
+  <%= f.button :submit, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+<% end %>
+
+<%= link_to 'Back', "/home", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>

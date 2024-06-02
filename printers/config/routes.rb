@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,13 +17,28 @@ Rails.application.routes.draw do
   # Defines the path of the home page (root)
   get "home", to: "main#home",  as: :home_page
 
+  get "adminWindow", to: "main#adminWindow"
+
   # Defines the path of the sendPdf page
   get "uploadPdf", to: "main#uploadPdf", as: :uploadPdf_page
 
   # Page that makes the post
   post "postPdf", to: "main#postPdf"
 
+  post "fill", to: "main#fill"
+
+  post "fillAdmin", to: "main#fillAdmin"
+
+  get "deleteWindow", to: "main#deleteWindow"
+  post "deleteDate", to: "main#deleteDate"
+
   # Page that makes the post
   get "pdfByName", to: "main#pdfByName"
+
+  resources :filters
+  
+  get 'reset', to: 'main#reset'
+
+  resources :users
 
 end
