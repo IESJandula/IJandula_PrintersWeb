@@ -18,20 +18,13 @@ Para iniciar la web, siga estos pasos:
 2. Instale Rails utilizando la consola de comandos con el siguiente comando:
 gem install rails 7.1.3.2
 
-yaml
-Copiar código
 Para iniciar la web:
 1. Ejecute el siguiente comando para instalar las gemas necesarias:
 bundle install --gemfile “ruta del Gemfile”
-
-r
-Copiar código
 Ejemplo: `src\main\resources\static\printers\Gemfile`
 2. Compile el proyecto con el siguiente comando:
 bundle exec rails assets
 
-php
-Copiar código
 3. Utilice el comando `rails s` dentro de la carpeta del proyecto para iniciar la web.
 
 ### Creación de Usuarios
@@ -40,11 +33,8 @@ Para crear un usuario administrador, siga estos pasos:
 
 1. Ejecute en la consola `rails c`. Esto abrirá una consola de Rails para la gestión de la base de datos.
 2. Utilice el siguiente código, modificando la información según sea necesaria:
-```ruby
-User.create(email: "user@example.com", admin: true, password: "password123", password_confirmation: "password123")
-Usuario Normal:
-Se ha proporcionado un archivo users.json en la ruta db\data\users.json con los correos electrónicos y contraseñas de los usuarios que contendrán la base de datos. Cada vez que se añadan nuevos usuarios, ejecute el siguiente comando en la consola desde la carpeta del proyecto para cargarlos en la base de datos:
+`User.create(email: "user@example.com", admin: true, password: "password123", password_confirmation: "password123")`
 
-arduino
-Copiar código
-rake import:users
+#### Usuario Normal:
+Se ha proporcionado un archivo users.json en la ruta `db\data\users.json` con los correos electrónicos y contraseñas de los usuarios que contendrán la base de datos. Cada vez que se añadan nuevos usuarios, ejecute el siguiente comando en la consola desde la carpeta del proyecto para cargarlos en la base de datos:
+`rake import:users`
