@@ -22,10 +22,14 @@ Pasos necesarios para iniciar la web:
     1- Esto se realiza mediante la consola de comandos con el comando 'gem install rails 7.1.3.2'
     
 3.Para iniciar la web:
-
-    1- Ejecutar el siguiente comando _**'bundle install --gemfile “ruta del Gemfile” **_ Ejemplo:(src\main\resources\static\printers\Gemfile)
-    2- Compilar el proyecto con _**'bundle exec rails assets'**_
-    3- Usar el comando 'rails s' dentro de la carpeta del proyecto para iniciar la web
+1- Ejecutar el siguiente comando 
+    
+     bundle install --gemfile “ruta del Gemfile” Ejemplo:(src\main\resources\static\printers\Gemfile)  
+ 2- Compilar el proyecto con
+ 
+     bundle exec rails assets
+ 
+3- Usar el comando 'rails s' dentro de la carpeta del proyecto para iniciar la web
 
 ----------- CREACIÓN DE USUARIOS -----------
 
