@@ -27,8 +27,3 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Set up the database
-      run: |
-        bundle exec rails db:create RAILS_ENV=production
-        bundle exec rails db:migrate RAILS_ENV=production
-        bundle exec rails db:seed RAILS_ENV=production
