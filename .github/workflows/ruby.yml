@@ -19,7 +19,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        ruby-version: ['3.2.3']
+        ruby-version: ['3.2.2']
     steps:
     - uses: actions/checkout@v4
     - name: Set up Ruby
