@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+gem "rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -77,3 +77,5 @@ gem "jsbundling-rails", "~> 1.3"
 gem "rack-cors"
 
 gem "devise", "~> 4.9"
+
+gem "tzinfo-data", "~> 1.2024"
