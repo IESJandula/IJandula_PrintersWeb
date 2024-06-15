@@ -16,10 +16,10 @@
                                 <select name="selected_user" class="rounded-lg border-2 border-gray-900 hover:border-red-900 w-full text-center font-serif font-bold">
                                     <option value="">Todos</option>
                                     <% @users.each do |option| %>
-                                        <% if option == @fill.user %> <
-                                            <option value="<%= option %>" selected><%= option %>
+                                        <% if option.email == @fill.user %> <
+                                            <option value="<%= option.email %>" selected><%= option.email %>
                                         <% else %>
-                                            <option value="<%= option %>"><%= option %></option>
+                                            <option value="<%= option.email %>"><%= option.email %></option>
                                         <% end %>
                                     <% end %>
                                 </select>

@@ -19,10 +19,10 @@ class MainController < ApplicationController
   end
 
   def adminWindow
-    p "-"*100
+ 
     p session[:user]
     p session[:password]
-    p "-"*100
+
 
     getUsers
     getPrinters
@@ -53,7 +53,7 @@ class MainController < ApplicationController
           date: json_data['date']
         )
       end
-
+      @users = User.all
       puts @parsed_data
       puts response.code
     rescue RestClient::ExceptionWithResponse => e
@@ -66,50 +66,57 @@ class MainController < ApplicationController
 
   # postPdf control 
   def postPdf
-    if params[:exampleFormControlFile1].present?
-
-      # The file content from the web form
-      @file = params[:exampleFormControlFile1]
-      # The printer name from the web form
-      @printer = params[:selected_option]
-      # The number of copies from the web form
-      @numCopies = params[:integer_selector]
-      # The color of the copies from the web form
-      @color = params[:selected_color]
-      # The orientation of the copies from the web form
-      @orientation = params[:selected_orientation]
-      # The faces of copies from the web form
-      @faces = params[:selected_both]
-
-      # Ensure @file is an UploadedFile object
-      if @file.is_a?(ActionDispatch::Http::UploadedFile)
-        begin
-          response = RestClient.post(
-            SERVER_PORT + "print",
-            { file: @file, printerName: @printer, numCopies: @numCopies, color: @color, orientation: @orientation, faces: @faces, user: session[:user] },
-            multipart: true
-          )
-          puts @result
-          puts response.code
-
-        rescue RestClient::ExceptionWithResponse => e
-          puts "Error: #{e.response}"
+    if params[:exampleFormControlFile1].present? 
+      status = ""
+      getPrinters
+      @result.each do |printer|
+        if printer['name'] == params[:selected_option]
+          status = printer['status']
         end
-      else
-        puts "Invalid file format or file missing"
       end
-      redirect_to home_path
+      if status ==  "Ninguno: No se especifica el estado."
+        # The file content from the web form
+        @file = params[:exampleFormControlFile1]
+        # The printer name from the web form
+        @printer = params[:selected_option]
+        # The number of copies from the web form
+        @numCopies = params[:integer_selector]
+        # The color of the copies from the web form
+        @color = params[:selected_color]
+        # The orientation of the copies from the web form
+        @orientation = params[:selected_orientation]
+        # The faces of copies from the web form
+        @faces = params[:selected_both]
+
+        # Ensure @file is an UploadedFile object
+        if @file.is_a?(ActionDispatch::Http::UploadedFile)
+          begin
+            response = RestClient.post(
+              SERVER_PORT + "print",
+              { file: @file, printerName: @printer, numCopies: @numCopies, color: @color, orientation: @orientation, faces: @faces, user: session[:user] },
+              multipart: true
+            )
+            puts @result
+            puts response.code
+
+          rescue RestClient::ExceptionWithResponse => e
+            puts "Error: #{e.response}"
+          end
+        else
+          puts "Invalid file format or file missing"
+        end
+        redirect_to home_path
+      else
+        redirect_to "/uploadPdf", alert: "No se puede utilizar esa impresora ahoramismo."  
+      end
     else
       puts "No se realizo la petición, parametro vacio"
-      redirect_to "/uploadPdf", notice: "No has subido un archivo pdf."     
+      redirect_to "/uploadPdf", alert: "No has subido un archivo pdf."     
     end
   end
     
   # home control logic
   def home
-    p '------------------------------------------------------------------------------------------------------------'
-    p session[:user]
-    p session[:password]
     getPrinters
     PrintInfo.destroy_all
     begin
@@ -173,9 +180,6 @@ class MainController < ApplicationController
         SERVER_PORT + "admin/delete/print_actions",
         { date: params[:selected_date], status: params[:selected_status] }
       )
-      p 'M'*100 
-      p params[:selected_date]
-      p params[:selected_status]
       p response.body  
 
     rescue RestClient::ExceptionWithResponse => e
@@ -189,8 +193,6 @@ class MainController < ApplicationController
     
   def fill
     Filter.destroy_by(by: session[:user])
-    p 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh   '
-    p params
     Filter.create!(
       printer_name: params[:selected_option],
       num_copies: params[:integer_selector],
@@ -206,8 +208,6 @@ class MainController < ApplicationController
 
   def fillAdmin
     Filter.destroy_by(by: session[:user])
-    p 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh   '
-    p params
     Filter.create!(
       printer_name: params[:selected_option],
       num_copies: params[:integer_selector],
@@ -234,7 +234,6 @@ class MainController < ApplicationController
         url
       ) 
       @result = JSON.parse(response.body)
-      p @result
       puts response.code
     rescue RestClient::ExceptionWithResponse => e
       puts "Error: #{e.response}"
@@ -247,7 +246,6 @@ class MainController < ApplicationController
       response = RestClient.get(
         url
       ) 
-      p "y"*100
       p response.body
       @users = JSON.parse(response.body)
       p @users

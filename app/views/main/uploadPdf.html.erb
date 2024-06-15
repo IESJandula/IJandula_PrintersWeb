@@ -7,14 +7,8 @@
     <%= javascript_include_tag 'drag_over_handler' %>
   </head>
   <body >
-
     <%= form_tag("/postPdf", method: "post", multipart: true, class: "text-center") do %>
       <div class="pb-6">
-        <% flash.each do |name, msg| -%>
-        <div class="rounded-md p-4 mt-4 <%= case name when 'notice' then 'bg-red-100 text-red-800 text-xl font-serif font-bold'end %>">
-          <%= msg %>
-        </div>
-      <% end -%>
         <div class="py-32">
         <!-- The pdf selector -->
           <%= content_tag(:div, class: "form-group") do %>
