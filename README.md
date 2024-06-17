@@ -25,8 +25,8 @@ Para iniciar la web:
 Ejemplo: `src\main\resources\static\printers\Gemfile`
 2. Compile el proyecto con el siguiente comando:
 `bundle exec rails assets`
-
-3. Utilice el comando `rails s` dentro de la carpeta del proyecto para iniciar la web.
+3. Cree la base de datos usando el comando `rails db:create` y cree las tablas con `rails db:migrate`
+4. Utilice el comando `rails s` dentro de la carpeta del proyecto para iniciar la web.
 
 ### Creación de Usuarios
 #### Administrador:
